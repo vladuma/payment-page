@@ -45,7 +45,7 @@ function generateForm(data) {
   }
 
   newForm.appendTo('body'); // append to body
-  console.log(newForm); //log the form (test feature)
+  // console.log(newForm); //log the form (test feature)
 
   newForm.submit(); //submit form
 }
