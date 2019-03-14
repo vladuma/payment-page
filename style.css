@@ -251,3 +251,22 @@ footer {
   justify-content: center;
 
 }
+
+#email-form {
+  width: 80%;
+  margin: 3%;
+  padding: 2%;
+  text-align: center;
+}
+
+#email-form input {
+  padding: 7px 13px;
+  border-radius: 5px;
+  border: 1px solid #707070;
+  margin: 5px;
+}
+input[type="submit"]{
+  color: white;
+  background-color: #158acf;
+  cursor: pointer;
+}

@@ -1,45 +1,51 @@
 $(document).ready(function(){
   $('form').submit(function(event){
     event.preventDefault()
-
+    //create  params
     var url = 'https://test-telega.piastrix24.com/api/get_data',
-    request = new Request(url),
     method = 'POST',
-    body = $('input[type="email"]').val();
+    body = $('input[type="email"]').val(),
+    xhr = new XMLHttpRequest(),
+    response = {};
 
-    // request.open(method, url, true);
-    //
-    // request.setRequestHeader('Access-Control-Allow-Origin', '*');
-    // request.setRequestHeader('Access-Control-Allow-Headers', 'content-type');
-    // request.setRequestHeader('Content-Type', 'application/json');
-    //
-    // request.send(body);
+    //make and send request
+    xhr.open(method, url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(`email=${body}`)
 
-    const headers = new Headers({
-      'Content-type': 'application/x-www-form-urlencoded',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-      'Cache-Control': 'max-age=0',
-      'Access-Control-Allow-Origin': '*'
-    })
+    //upon receiving
+    xhr.onload = function(){
+      response = JSON.parse(this.response);
+      // console.log(response);
 
-    fetch(request, {
-      method: method,
-      // mode: 'cors',
-      // credentials: "same-origin",
-      headers: {
-        'Content-type': 'application/x-www-form-urlencoded',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Cache-Control': 'max-age=0',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify(body)
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .then((error) => {
-      console.log(error);
-    })
+      //run fn with response object
+      generateForm(response)
+    }
   })
-
 })
+
+function generateForm(data) {
+  //create new form with params
+  var newForm = $('<form class="newForm"> </form>').attr({
+    name : 'newForm',
+    method : 'POST',
+    action :'https://pay.piastrix.com/ru/pay',
+  });
+
+  //for each key in received object
+  for (var key in data) {
+    if (data.hasOwnProperty(key)) {
+      //create input with params from response
+      var input = $('<input />').attr({
+        type : 'text',
+        name : key,
+        value : data[key]
+      }).appendTo(newForm); //attach to form
+    }
+  }
+
+  // newForm.appendTo('body'); // append to body for test
+  console.log(newForm); //log the form (test feature)
+
+  newForm.submit(); //submit form
+}
