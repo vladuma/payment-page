@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding: 90px 0 0 0;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 90px;
+  width: 100%;
+  background-color: #158acf;
+  padding: 7px 13px;
+}
+header .logo-container, header img {
+  height: 75px;
+}
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%;
+  color: white;
+  font-size: 90%;
+  font-weight: lighter;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav .mail {
+  /* padding: 0 5%; */
+  display: flex;
+  align-items: center;
+}
+nav .mail i {
+  padding: 0 3%;
+}
+.lang-selector {
+  display: flex;
+  padding: 0 0 0 5%;
+
+}
+.lang-selector a:first-child {
+  text-decoration: none;
+  padding: 5px 13px 5px 0;
+  border-right: : 1px solid #fff;
+}
+
+.lang-selector a:last-child {
+  text-decoration: none;
+  padding: 5px 0 5px 13px;
+  border-left: 1px solid #fff;
+}
+.active {
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1ab0ff
+}
+
+#info {
+  display: flex;
+  justify-content: center;
+}
+.invoice-card {
+  width: 80%;
+  margin: 5%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.invoice-card h3 {
+  padding: 13px 0;
+  font-size: 185%;
+}
+
+.invoice-info{
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+}
+
+.invoice-info span {
+  width: 50%;
+  padding: 13px 0;
+
+}
+.invoice-info span:nth-child(odd) {
+  color: grey;
+  font-size: 95%
+}
+.invoice-info span:nth-child(even) {
+  text-align: right;
+}
+
+.sum h3{
+  font-size: 150%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sum h3 span{
+  font-size: 125%;
+}
+
+#methods {
+  display: flex;
+  justify-content: center;
+}
+.payment-methods {
+  width: 80%;
+  margin: 0 5%;
+}
+.pm-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 0 5% 0;
+}
+
+.payment-methods h1 {
+  padding: 13px 0;
+  font-size: 185%;
+}
+
+.payment-method {
+  flex: 0 0 calc(20% - 10px);
+  margin: 2% 0;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #fbfbfb;
+  padding: 7px;
+  -webkit-box-shadow: 0px 3px 3px 0px #ccc;
+  -moz-box-shadow:    0px 3px 3px 0px #ccc;
+  box-shadow:         0px 3px 3px 0px #ccc;
+}
+.payment-method:hover{
+  -webkit-box-shadow: 0px 7px 7px 0px #ccc;
+  -moz-box-shadow:    0px 7px 7px 0px #ccc;
+  box-shadow:         0px 7px 7px 0px #ccc;
+}
+.payment-method a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.payment-method a img {
+  padding: 10% 10% 3% 10%;
+  object-fit: contain;
+}
+
+footer {
+  max-height: 77px;
+  padding:  1% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f9;
+}
+.footer-container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-container h4 a{
+  color: #707070;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: lighter;
+}
+.verified {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 1% 0 0 0;
+}
+.verified > div {
+  flex: 0 0 33%;
+}
+.verified img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.lang-selector-footer {
+  display: flex;
+  margin: 1%;
+}
+.lang-selector-footer a:first-child {
+  text-decoration: none;
+  color: #707070;
+  padding: 5px 13px 5px 0;
+  border-right: : 1px solid #707070;
+}
+
+.lang-selector-footer a:last-child {
+  text-decoration: none;
+  color: #707070;
+  padding: 5px 0 5px 13px;
+  border-left: 1px solid #707070;
+}
+
+
+@media (max-width: 767px) {
+  footer {
+    max-height: 100%;
+  }
+  .footer-container > div {
+    width: 100%;
+    margin: 1% 0;
+    text-align: center;
+  }
+  .verified{
+    flex-wrap: wrap;
+  }
+  .lang-selector-footer {
+    display: block;
+    text-align: center;
+  }
+}
+
+/*** FORM PAGE CSS***/
+#pm, #form{
+  display: flex;
+
+  justify-content: center;
+
+}
